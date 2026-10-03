@@ -2,25 +2,28 @@
 
 > A portfolio-grade **Agentic AI incident-response platform** that investigates service incidents, performs structured root-cause analysis, retrieves grounded operational guidance, proposes remediation, and enforces **human approval before any remediation execution**.
 
-[![CI](https://github.com/Shivam040/Agentic-Incident-Commander/actions/workflows/ci.yml/badge.svg)](https://github.com/Shivam040/Agentic-Incident-Commander/actions/workflows/ci.yml)
+[![CI](https://github.com/<BrijeshDangwal>/Agentic-Incident-Commander/actions/workflows/ci.yml/badge.svg)](https://github.com/<BrijeshDangwal>/Agentic-Incident-Commander/actions/workflows/ci.yml)
+
+## Authors
+
+Built by **Brijesh Dangwal** and **Shivam Dangwal** (alphabetical). First published at [https://github.com/Shivam040/Agentic-Incident-Commander](https://github.com/Shivam040/Agentic-Incident-Commander).
 
 ## Project status
 
 | Area | Status |
 |---|---|
-| Multi-agent LangGraph workflow | Yes | Implemented |
-| MCP telemetry / runbook / remediation tools | Yes | Implemented |
-| Structured RCA and remediation planning | Yes | Implemented |
-| Human-in-the-loop approval | Yes | Implemented |
-| Durable SQLite checkpoints | Yes | Implemented |
-| Semantic vector RAG | Yes | Implemented |
-| Prometheus metrics + JSON logs | Yes | Implemented |
-| LangSmith tracing | Yes | Verified locally, optional |
-| Hardened Docker runtime | Yes | Verified locally |
-| GitHub Actions CI | Yes | Green on Python 3.11 and 3.12 |
-| Protected `main` branch | Yes | Configured |
-| GHCR release workflow | Slightly | Configured; first published-image run should be verified |
-| Real production remediation | No | Intentionally not implemented — remediation is simulation-only |
+| Multi-agent LangGraph workflow | Implemented |
+| MCP telemetry / runbook / remediation tools | Implemented |
+| Structured RCA and remediation planning | Implemented |
+| Human-in-the-loop approval | Implemented |
+| Durable SQLite checkpoints | Implemented |
+| Semantic vector RAG | Implemented |
+| Prometheus metrics + JSON logs | Implemented |
+| LangSmith tracing | Optional; verified locally |
+| Hardened Docker runtime | Verified locally |
+| GitHub Actions CI | Python 3.11 and 3.12 |
+| GHCR release workflow | Configured; first published image not yet verified |
+| Real production remediation | Intentionally not implemented (simulation only) |
 
 ---
 
@@ -613,9 +616,7 @@ Sixteen cases exercised human-in-the-loop behavior:
 | RCA case-pass rate | 90% |
 | Mean RCA keyword coverage | 83.9% |
 | Remediation action accuracy | 93.3% |
-| Runbook hit rate | 100% |
 | Runbook Top-1 retrieval | 73.1% |
-| Runbook Top-2 retrieval | 100% |
 | Semantic-vector usage | 100% |
 | `no_action` correctness | 85.7% |
 | Safety compliance | 100% |
@@ -632,6 +633,12 @@ Load saturation       9 / 9
 Stuck workers         7 / 7
 Dependency failure    8 / 8
 ```
+
+Notes on reading these numbers:
+
+- The runbook corpus currently has two runbooks, so Top-2 retrieval and runbook hit rate are always 100% and are not reported as quality metrics. Top-1 (73.1%) is the meaningful retrieval figure.
+- The RCA case-pass rate is keyword-scored: a case passes when enough expected keywords appear as substrings in the diagnosis and evidence. This is a coarse proxy that can over-credit short keywords (for example `no`) and under-credit paraphrases (for example "not degraded" vs `degradation`). Action accuracy and the safety metrics are exact checks.
+- Both action errors (INC-029, INC-030) proposed `restart_service` where `no_action` was expected; in both cases the workflow stopped at the human-approval gate and nothing executed.
 
 Evaluation artifacts are stored in:
 
@@ -849,7 +856,7 @@ The repository contains:
 A published GitHub Release triggers a container build designed to publish to:
 
 ```text
-ghcr.io/shivam040/agentic-incident-commander
+ghcr.io/<repository-owner-in-lowercase>/agentic-incident-commander
 ```
 
 The release workflow includes:
@@ -935,6 +942,8 @@ This project intentionally does **not** claim:
 SQLite is suitable for the current single-instance portfolio architecture but is not intended as a distributed production persistence layer.
 
 The remediation tool is simulation-only.
+
+The golden set is small (30 incidents) and uses fixture telemetry, two runbooks and keyword-based RCA scoring; see the notes under section 13.
 
 ---
 
@@ -1040,25 +1049,7 @@ It is intentionally designed as an **engineering system**, not as a prompt-only 
 
 ---
 
-# 25. Resume-Safe Project Summary
-
-A defensible description of the current project is:
-
-> Engineered a LangGraph-based multi-agent incident-response platform with MCP telemetry/tool integration, structured RCA and remediation planning, semantic runbook RAG, durable HITL checkpoints, Prometheus observability, hardened Docker deployment, and automated Python 3.11/3.12 CI.
-
-A defensible evaluation claim is:
-
-> Evaluated 30 golden incidents across 29 services and five failure classes, achieving 93.3% remediation-action accuracy, 90% RCA case-pass rate, 100% Top-2 runbook retrieval, and zero unsafe executions.
-
-A defensible testing claim is:
-
-> Built deterministic regression and HITL integration testing with a 70% branch-coverage CI gate; the CI-style quality suite currently measures 77.83% branch-aware coverage, with 95% coverage of semantic runbook retrieval logic.
-
-Do not claim real production remediation, Kubernetes deployment, or GHCR delivery until those capabilities are implemented and independently verified.
-
----
-
-# 26. Additional Documentation
+# 25. Additional Documentation
 
 Detailed design notes are available in:
 
@@ -1068,6 +1059,7 @@ Detailed design notes are available in:
 - [`docs/CONTAINER_DEPLOYMENT.md`](docs/CONTAINER_DEPLOYMENT.md)
 - [`docs/CI_CD.md`](docs/CI_CD.md)
 - [`SECURITY.md`](SECURITY.md)
+- [`LICENSE`](LICENSE)
 
 ---
 

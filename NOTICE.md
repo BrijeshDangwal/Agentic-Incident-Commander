@@ -8,4 +8,4 @@ References studied:
 - JoelJohnsonThomas/ForgeFlow
   https://github.com/JoelJohnsonThomas/ForgeFlow
 
-v0.2 uses its own incident domain, state model, prompts, MCP tools, safety boundary, API, and tests. If code is later copied from another project, preserve that source project's license and attribution requirements.
+This project uses its own incident domain, state model, prompts, MCP tools, safety boundary, API, and tests. If code is later copied from another project, preserve that source project's license and attribution requirements.

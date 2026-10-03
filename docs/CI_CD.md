@@ -115,9 +115,9 @@ It authenticates to `ghcr.io` using GitHub's automatically generated `GITHUB_TOK
 
 To publish a versioned image, create a tag/release such as `v0.4.0`, then publish the GitHub Release. Expected tags include the semantic version, major/minor, SHA, and `latest` for release-triggered builds.
 
-After the first publish, set the GHCR package visibility to **Public** if you want recruiters to pull it without authentication.
+After the first publish, set the GHCR package visibility to **Public** if you want others to pull it without authentication.
 
-## Resume metrics to collect after first CI run
+## Metrics to record after the first CI run
 
 Record these only after GitHub measures them:
 

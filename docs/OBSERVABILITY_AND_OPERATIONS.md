@@ -86,7 +86,7 @@ a separate registry password; it uses the repository-scoped `GITHUB_TOKEN`.
 
 The Stage 3 golden evaluation is also extended with end-to-end latency and tool
 request counts. It now reports mean, p50, and p95 workflow latency. These values
-must be measured on the user's machine before they are used on a resume.
+must be measured on the target machine before they are reported.
 
 ## Safety invariants preserved
 

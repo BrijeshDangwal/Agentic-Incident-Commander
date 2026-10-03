@@ -7,6 +7,7 @@ name = "agentic-incident-commander"
 version = "0.4.0"
 description = "Observable agentic incident response with LangGraph, MCP, semantic RAG, durable HITL, CI/CD, and evaluation"
 requires-python = ">=3.11"
+authors = [{name = "Brijesh Dangwal"}, {name = "Shivam Dangwal"}]
 dependencies = [
     "fastapi>=0.115",
     "uvicorn[standard]>=0.30",
