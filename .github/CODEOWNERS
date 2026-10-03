@@ -1,10 +1,10 @@
 # Require the repository owner to review changes to high-risk project areas.
-* @<BrijeshDangwal>
+* @BrijeshDangwal
 
-/.github/ @<BrijeshDangwal>
-/Dockerfile @<BrijeshDangwal>
-/compose.yaml @<BrijeshDangwal>
-/src/incident_commander/graph.py @<BrijeshDangwal>
-/src/incident_commander/mcp_server.py @<BrijeshDangwal>
-/src/incident_commander/tools/remediation.py @<BrijeshDangwal>
-/src/incident_commander/prompts.py @<BrijeshDangwal>
+/.github/ @BrijeshDangwal
+/Dockerfile @BrijeshDangwal
+/compose.yaml @BrijeshDangwal
+/src/incident_commander/graph.py @BrijeshDangwal
+/src/incident_commander/mcp_server.py @BrijeshDangwal
+/src/incident_commander/tools/remediation.py @BrijeshDangwal
+/src/incident_commander/prompts.py @BrijeshDangwal

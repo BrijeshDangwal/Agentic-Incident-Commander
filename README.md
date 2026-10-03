@@ -2,7 +2,7 @@
 
 > A portfolio-grade **Agentic AI incident-response platform** that investigates service incidents, performs structured root-cause analysis, retrieves grounded operational guidance, proposes remediation, and enforces **human approval before any remediation execution**.
 
-[![CI](https://github.com/<BrijeshDangwal>/Agentic-Incident-Commander/actions/workflows/ci.yml/badge.svg)](https://github.com/<BrijeshDangwal>/Agentic-Incident-Commander/actions/workflows/ci.yml)
+[![CI](https://github.com/BrijeshDangwal/Agentic-Incident-Commander/actions/workflows/ci.yml/badge.svg)](https://github.com/BrijeshDangwal/Agentic-Incident-Commander/actions/workflows/ci.yml)
 
 ## Authors
 
